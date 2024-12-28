@@ -14,7 +14,19 @@ public class Item {
         this.quality = quality;
     }
 
-   @Override
+    static void increasesQualityByOne(Item item) {
+        if (item.quality < 50) {
+            item.quality = item.quality + 1;
+        }
+    }
+
+    static void decreaseQualityByOne(Item item) {
+        if (item.quality > 0) {
+            item.quality = item.quality - 1;
+        }
+    }
+
+    @Override
    public String toString() {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
