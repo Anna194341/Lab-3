@@ -83,7 +83,7 @@ class GildedRoseTest {
 
     @Test
     void backstagePasses_QualityIncreasesByOneWhenSellInOverTen() {
-        Item[] items = new Item[] { new BackstagePass(11, 20) };
+        Item[] items = new Item[] { new BackstagePass(12, 20) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(21, items[0].quality);

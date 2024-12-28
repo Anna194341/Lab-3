@@ -3,9 +3,7 @@ package com.gildedrose;
 public class Item {
 
     public String name;
-
     public int sellIn;
-
     public int quality;
 
     public Item(String name, int sellIn, int quality) {
@@ -28,10 +26,14 @@ public class Item {
 
     public void updateQuality() {
         decreaseQualityByOne();
-        sellIn = sellIn - 1;
+        decreaseSellIn();
         if (sellIn < 0) {
             decreaseQualityByOne();
         }
+    }
+
+    public void decreaseSellIn() {
+        sellIn = sellIn - 1;
     }
 
     @Override
