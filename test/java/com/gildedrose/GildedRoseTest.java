@@ -113,11 +113,9 @@ class GildedRoseTest {
         assertEquals(0, items[0].quality);
     }
 
-    /*
-    Тести для conjured items
     @Test
     void conjuredItem_QualityDecreasesByTwoWhenSellInPositive() {
-        Item[] items = new Item[] { new Item("Conjured", 1, 10) };
+        Item[] items = new Item[] { new Conjured("Conjured", 1, 10) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(8, items[0].quality);
@@ -125,12 +123,9 @@ class GildedRoseTest {
 
     @Test
     void conjuredItem_QualityDecreasesByFourWhenSellInNegative() {
-        Item[] items = new Item[] { new Item("Conjured", -1, 10) };
+        Item[] items = new Item[] { new Conjured("Conjured", -1, 10) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(6, items[0].quality);
     }
-
-    */
-
 }

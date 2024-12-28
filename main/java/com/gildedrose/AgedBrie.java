@@ -8,10 +8,9 @@ public class AgedBrie extends Item {
 
     @Override
     public void updateQuality() {
-        increaseQualityByOne();
         decreaseSellIn();
-        if (sellIn < 0) {
-            increaseQualityByOne();
-        }
+        if (sellIn >= 0) increaseQualityBy(1);
+        if (sellIn < 0) increaseQualityBy(2);
     }
 }
+

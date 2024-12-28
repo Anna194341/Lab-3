@@ -12,28 +12,28 @@ public class Item {
         this.quality = quality;
     }
 
-     public void increaseQualityByOne() {
-        if (quality < 50) {
-            quality = quality + 1;
-        }
-    }
-
-     public void decreaseQualityByOne() {
-        if (quality > 0) {
-            quality = quality - 1;
-        }
+    public void resetQuality() {
+        quality = 0;
     }
 
     public void updateQuality() {
-        decreaseQualityByOne();
         decreaseSellIn();
-        if (sellIn < 0) {
-            decreaseQualityByOne();
-        }
+        if (sellIn >= 0) decreaseQualityBy(1);
+        if (sellIn < 0) decreaseQualityBy(2);
     }
 
     public void decreaseSellIn() {
         sellIn = sellIn - 1;
+    }
+
+    public void decreaseQualityBy(int amount) {
+        quality -= amount;
+        if (quality < 0) resetQuality();
+    }
+
+    public void increaseQualityBy(int amount) {
+        quality += amount;
+        if (quality > 50) quality = 50;
     }
 
     @Override
