@@ -32,7 +32,7 @@ class GildedRoseTest {
     @Test
     void QualityNeverExceedsFifty() {
         Item[] items = new Item[] {
-                new Item("Aged Brie", 5, 50),
+                new AgedBrie(5, 50),
                 new Item("Backstage passes to a TAFKAL80ETC concert", 5, 50)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -58,7 +58,7 @@ class GildedRoseTest {
 
     @Test
     void agedBrie_QualityIncreasesByOneWhenSellInPositive() {
-        Item[] items = new Item[] { new Item("Aged Brie", 1, 10) };
+        Item[] items = new Item[] { new AgedBrie(1, 10) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(11, items[0].quality);
@@ -66,7 +66,7 @@ class GildedRoseTest {
 
     @Test
     void agedBrie_QualityIncreasesByTwoWhenSellInNegative() {
-        Item[] items = new Item[] { new Item("Aged Brie", 0, 10) };
+        Item[] items = new Item[] { new AgedBrie(0, 10) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(12, items[0].quality);

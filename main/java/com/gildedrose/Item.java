@@ -14,20 +14,29 @@ public class Item {
         this.quality = quality;
     }
 
-    static void increasesQualityByOne(Item item) {
-        if (item.quality < 50) {
-            item.quality = item.quality + 1;
+     public void increaseQualityByOne() {
+        if (quality < 50) {
+            quality = quality + 1;
         }
     }
 
-    static void decreaseQualityByOne(Item item) {
-        if (item.quality > 0) {
-            item.quality = item.quality - 1;
+     public void decreaseQualityByOne() {
+        if (quality > 0) {
+            quality = quality - 1;
+        }
+    }
+
+    public void updateQuality() {
+        decreaseQualityByOne();
+        sellIn = sellIn - 1;
+        if (sellIn < 0) {
+            decreaseQualityByOne();
         }
     }
 
     @Override
-   public String toString() {
+    public String toString() {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
+
 }
