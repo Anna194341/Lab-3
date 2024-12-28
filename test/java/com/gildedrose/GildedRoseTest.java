@@ -33,7 +33,7 @@ class GildedRoseTest {
     void QualityNeverExceedsFifty() {
         Item[] items = new Item[] {
                 new AgedBrie(5, 50),
-                new Item("Backstage passes to a TAFKAL80ETC concert", 5, 50)};
+                new BackstagePass(5, 50)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(50, items[0].quality);
@@ -74,7 +74,7 @@ class GildedRoseTest {
 
     @Test
     void sulfuras_NeverChanges() {
-        Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", 5, 80) };
+        Item[] items = new Item[] { new Sulfuras(5, 80) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(80, items[0].quality);
@@ -83,7 +83,7 @@ class GildedRoseTest {
 
     @Test
     void backstagePasses_QualityIncreasesByOneWhenSellInOverTen() {
-        Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 11, 20) };
+        Item[] items = new Item[] { new BackstagePass(11, 20) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(21, items[0].quality);
@@ -91,7 +91,7 @@ class GildedRoseTest {
 
     @Test
     void backstagePasses_QualityIncreasesByTwoWhenSellInTenOrLess() {
-        Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 10, 20) };
+        Item[] items = new Item[] { new BackstagePass(10, 20) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(22, items[0].quality);
@@ -99,7 +99,7 @@ class GildedRoseTest {
 
     @Test
     void backstagePasses_QualityIncreasesByThreeWhenSellInFiveOrLess() {
-        Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 5, 20) };
+        Item[] items = new Item[] { new BackstagePass(5, 20) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(23, items[0].quality);
@@ -107,7 +107,7 @@ class GildedRoseTest {
 
     @Test
     void backstagePasses_QualityDropsToZeroAfterConcert() {
-        Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 0, 20) };
+        Item[] items = new Item[] { new BackstagePass(0, 20) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(0, items[0].quality);
